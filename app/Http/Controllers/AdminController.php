@@ -27,6 +27,6 @@ class AdminController extends Controller
         }
     }
     public function index(){
-        return view("admin.posts");
+        return view("admin.index");
     }
 }

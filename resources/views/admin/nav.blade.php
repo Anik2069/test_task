@@ -9,11 +9,11 @@
                     <a href="/dash"><i class="fe fe-home"></i> <span>Dashboard</span></a>
                 </li>
                 <li>
-                    <a href="/category"><i class="fe fe-layout"></i> <span>Create Post</span></a>
+                    <a href="/create_post"><i class="fe fe-layout"></i> <span>Create Post</span></a>
                 </li>
 
                 <li>
-                    <a href="/complains"><i class="fe fe-user-plus"></i> <span>Review Posts</span></a>
+                    <a href="/view_all"><i class="fe fe-user-plus"></i> <span>Review Posts</span></a>
                 </li>
 
 

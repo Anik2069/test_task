@@ -17,4 +17,16 @@ Route::get('/admin', function () {
 Route::post('/submitlogin','AdminController@submitdata');
 Route::group(['middleware' => 'userauth'], function () {
     Route::get('/index',"AdminController@index");
+    Route::get('/create_post',"PostsController@index");
+    Route::post('/submitpost','PostsController@submitdata');
+
+    Route::get('/view_all',"PostsController@view_all");
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

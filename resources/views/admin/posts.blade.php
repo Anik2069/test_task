@@ -28,7 +28,8 @@
 
                         </div>
                         <div class="card-body">
-                            <form action="#" enctype="multipart/form-data">
+                            @include("admin.flash_message")
+                            <form action="/submitpost" method="post" enctype="multipart/form-data"> @csrf
                                 <div class="form-group row">
                                     <label class="col-form-label col-md-2">Listed Date</label>
                                     <div class="col-md-10">
@@ -39,7 +40,7 @@
                                 <div class="form-group row">
                                     <label class="col-form-label col-md-2">Type of Post</label>
                                     <div class="col-md-10">
-                                        <select class="form-control" id="mySelect" onclick="myFunction()">
+                                        <select class="form-control" id="mySelect" onclick="myFunction()" name="type">
                                             <option value="Choose...">-- Select --</option>
                                             <option value="image">Image Post</option>
                                             <option value="video">Video Post</option>
@@ -51,14 +52,25 @@
                                 <div class="form-group row">
                                     <label class="col-form-label col-md-2">Post Title</label>
                                     <div class="col-md-10">
-                                        <input type="text" class="form-control">
+                                        <input type="text" class="form-control" name="title">
+                                        @error("title")
+                                        <span class="" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
                                     </div>
+
                                 </div>
                                 <div id="image1" style="display:none">
                                     <div class="form-group row">
                                         <label class="col-form-label col-md-2">Image</label>
                                         <div class="col-md-10">
-                                            <input type="file" class="form-control">
+                                            <input type="file" class="form-control" name="image">
+                                            @error("image")
+                                            <span class="" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                        </span>
+                                            @enderror
                                         </div>
                                     </div>
                                 </div>
@@ -66,7 +78,12 @@
                                     <div class="form-group row">
                                         <label class="col-form-label col-md-2">Youtube Link</label>
                                         <div class="col-md-10">
-                                            <input type="text" class="form-control">
+                                            <input type="text" class="form-control" name="utubeline">
+                                            @error("utubeline")
+                                            <span class="" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                        </span>
+                                            @enderror
                                         </div>
                                     </div>
 
@@ -76,10 +93,10 @@
                                 <div class="form-group row">
                                     <label class="col-form-label col-md-2">Section Select</label>
                                     <div class="col-md-10">
-                                        <select class="form-control">
+                                        <select class="form-control" name="section">
                                             <option>-- Select --</option>
-                                            <option>Section 1</option>
-                                            <option>Section 2</option>
+                                            <option value="section_1">Section 1</option>
+                                            <option value="section_2">Section 2</option>
 
                                         </select>
                                     </div>
@@ -90,7 +107,12 @@
                                     <label class="col-form-label col-md-2">Description</label>
                                     <div class="col-md-10">
                                         <textarea rows="5" cols="5" class="form-control"
-                                                  placeholder="Enter text here"></textarea>
+                                                  placeholder="Enter text here" name="des"></textarea>
+                                        @error("des")
+                                        <span class="" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
                                     </div>
                                 </div>
 
@@ -98,10 +120,14 @@
 
                                     <label class="col-form-label col-md-2"> </label>
                                     <div class="col-md-5">
-                                        <input class="form-control btn btn-primary" type="submit">
+                                        <button class="form-control btn btn-primary" type="submit" name="submit">
+                                            Submit
+                                        </button>
                                     </div>
                                     <div class="col-md-5">
-                                        <input class="form-control btn btn-success" type="submit" value="Publish">
+                                        <button class="form-control btn btn-success" type="submit" name="Publish">
+                                            Publish
+                                        </button>
                                     </div>
                                 </div>
 
