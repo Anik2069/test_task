@@ -21,7 +21,17 @@ Route::group(['middleware' => 'userauth'], function () {
     Route::post('/submitpost','PostsController@submitdata');
 
     Route::get('/view_all',"PostsController@view_all");
+    Route::get('/change/{id}',"PostsController@change");
+    Route::get('/dlt/{id}',"PostsController@dlt");
+    Route::get('/change_password',"AdminController@change");
+
+    Route::post('/submitchangeadmin','AdminController@submitchange');
+    Route::get('/logout',"AdminController@logout");
+
 });
+
+
+Route::get('/',"publicview@index");
 
 Auth::routes();
 

@@ -21,10 +21,10 @@
                     <span>Additional</span>
                 </li>
                 <li>
-                    <a href="/change_password_admin"><i class="fe fe-user"></i> <span>Change Password</span></a>
+                    <a href="/change_password"><i class="fe fe-user"></i> <span>Change Password</span></a>
                 </li>
                 <li>
-                    <a href="/logoutadmin"><i class="fe fe-user"></i> <span> Log out</span></a>
+                    <a href="/logout"><i class="fe fe-user"></i> <span> Log out</span></a>
                 </li>
             </ul>
         </div>

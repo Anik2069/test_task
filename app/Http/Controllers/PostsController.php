@@ -48,11 +48,13 @@ class PostsController extends Controller
                     'des' => 'required',
                     'utubeline' => 'required',
                 ]);
+                $text= explode("=",$request->input("utubeline"));
+               // dd($text[1]);
                 $post = new posts();
                 $post->date = date('d M,Y');
                 $post->title = $request->input("title");
                 $post->type = $request->input("type");
-                $post->utubeline = $request->input("utubeline");
+                $post->utubeline = $text[1];
                 $post->section = $request->input("section");
                 $post->des = $request->input("des");
                 $post->approved = "1";
@@ -89,11 +91,12 @@ class PostsController extends Controller
                     'des' => 'required',
                     'utubeline' => 'required',
                 ]);
+                $text= explode("=",$request->input("utubeline"));
                 $post = new posts();
                 $post->date = date('d M,Y');
                 $post->title = $request->input("title");
                 $post->type = $request->input("type");
-                $post->utubeline = $request->input("utubeline");
+                $post->utubeline = $text[1];
                 $post->section = $request->input("section");
                 $post->des = $request->input("des");
                 $post->approved = "0";
@@ -107,7 +110,26 @@ class PostsController extends Controller
 
     }
      public function view_all(){
-        $value = posts::orderBy('id', 'DESC')->get();
+        $value = posts::orderBy('id', 'DESC')->paginate(10);;
         return view("admin.preview",compact("value"));
      }
+
+
+      public function change($id){
+        $value = posts::find($id);
+        if($value['approved']=="1"){
+           $value->approved="0";
+        }elseif ($value['approved']=="0"){
+            $value->approved="1";
+        }
+
+        $value->save();
+        return redirect("/view_all");
+      }
+    public function dlt($id){
+        $value = posts::find($id);
+        $value->delete();
+        return redirect("/view_all");
+    }
+
 }
