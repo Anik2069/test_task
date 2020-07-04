@@ -40,3 +40,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/view_Video_post/{id}',"publicview@change");
+Route::get('/view_post/{id}',"publicview@change");

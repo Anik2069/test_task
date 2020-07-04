@@ -12,12 +12,12 @@
                     <div class="classynav">
                         <ul>
 
-                            <li class="active"><a href="index.html">Test Demo</a></li>
+                            <li class="active"><a href="/">Test Demo</a></li>
                         </ul>
                     </div>
                     <!-- Logo -->
                     <div class="logo">
-                        <a href="index.html"><img src="img/core-img/logo.png" alt=""></a>
+                        <a href="/"><img src="img/core-img/logo.png" alt=""></a>
                     </div>
 
                     <!-- Navbar Toggler -->
@@ -37,10 +37,10 @@
                         <div class="classynav">
                             <ul>
 
-                                <li class="active"><a href="index.html">Home</a></li>
+                                <li class="active"><a href="/">Home</a></li>
 
 
-                                <li><a href="contact.html">Contact</a></li>
+                                <li><a href="/">Contact</a></li>
                             </ul>
                         </div>
                         <!-- Nav End -->

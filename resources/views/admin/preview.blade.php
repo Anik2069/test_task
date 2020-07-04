@@ -65,6 +65,7 @@
                         @endforeach
 
                     </div>
+
                     {{ $value->links() }}
                 </section>
                 <!-- /Cards -->

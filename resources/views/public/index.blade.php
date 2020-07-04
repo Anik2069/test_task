@@ -26,12 +26,12 @@
     <div class="container">
 
         <div class="row">
-            <?php $c = 0 ?>
+
             <div class="col-12 col-md-8 col-lg-8">
 
                 <div class="row">
-
-                    <!-- Single Featured Post -->
+                <?php $c = 0 ?>
+                <!-- Single Featured Post -->
                     @foreach($value as $val)
                         <?php $c = $c + 1 ?>
 
@@ -39,31 +39,36 @@
                             <div class="col-12 col-lg-6">
                                 <div class="single-blog-post featured-post">
                                     <div class="post-thumb">
-                                        <a href="#"><img src="img/bg-img/16.jpg" alt=""></a>
+                                        @if($val["type"]=="video")
+                                            <iframe width="370" height="347"
+                                                    src="https://www.youtube.com/embed/{{$val["utubeline"]}}">
+                                            </iframe>
+                                        @else
+                                            <img src="uploads/{{$val['image']}}" width="420" height="345"
+                                                 alt="No image found" class="card-img-top">
+                                        @endif
                                     </div>
                                     <div class="post-data">
                                         <a href="#" class="post-catagory">Finance</a>
-                                        <a href="#" class="post-title">
-                                            <h6>Title</h6>
-                                        </a>
+                                        @if($val["type"]=="video")
+                                            <a href="view_Video_post/{{$val["id"]}}" class="post-title">
+                                                <h6>{{$val["title"]}}</h6></a>
+
+                                        @else
+                                            <a href="view_post/{{$val["id"]}}" class="post-title">
+                                                <h6>{{$val["title"]}}</h6></a>
+
+                                        @endif
                                         <div class="post-meta">
-                                            <p class="post-author">By <a href="#">Christinne Williams</a></p>
-                                            <p class="post-excerp">Lorem ipsum dolor sit amet, consectetur adipiscing
-                                                elit.
-                                                Nam
-                                                eu metus sit amet odio sodales placerat. Sed varius leo ac leo
-                                                fermentum, eu
-                                                cursus nunc maximus. Integer convallis nisi nibh, et ornare neque
-                                                ullamcorper
-                                                ac. Nam id congue lectus, a venenatis massa. Maecenas justo libero,
-                                                vulputate
-                                                vel nunc id, blandit feugiat sem. </p>
+                                            <p class="post-excerp"> {{$val['des']}} </p>
                                             <!-- Post Like & Post Comment -->
                                             <div class="d-flex align-items-center">
-                                                <a href="#" class="post-like"><img src="img/core-img/like.png" alt="">
+                                                <a href="#" class="post-like"><img
+                                                        src="{{"assets"}}/assets/img/core-img/like.png" alt="">
                                                     <span>392</span></a>
-                                                <a href="#" class="post-comment"><img src="img/core-img/chat.png"
-                                                                                      alt="">
+                                                <a href="#" class="post-comment"><img
+                                                        src="{{"assets"}}/assets/img/core-img/chat.png"
+                                                        alt="">
                                                     <span>10</span></a>
                                             </div>
                                         </div>
@@ -81,20 +86,35 @@
                             @if($c==2)
                                 <div class="single-blog-post featured-post-2">
                                     <div class="post-thumb">
-                                        <a href="#"><img src="img/bg-img/17.jpg" alt=""></a>
+                                        @if($val["type"]=="video")
+                                            <iframe width="150" height="150"
+                                                    src="https://www.youtube.com/embed/{{$val["utubeline"]}}">
+                                            </iframe>
+                                        @else
+                                            <img src="uploads/{{$val['image']}}" width="150" height="150"
+                                                 alt="No image found" class="card-img-top">
+                                        @endif
                                     </div>
                                     <div class="post-data">
-                                        <a href="#" class="post-catagory">Finance</a>
+
                                         <div class="post-meta">
-                                            <a href="#" class="post-title">
-                                                <h6>TItile</h6>
-                                            </a>
+                                            @if($val["type"]=="video")
+                                                <a href="view_Video_post/{{$val["id"]}}" class="post-title">
+                                                    <h6>{{$val["title"]}}</h6></a>
+
+                                            @else
+                                                <a href="view_post/{{$val["id"]}}" class="post-title">
+                                                    <h6>{{$val["title"]}}</h6></a>
+
+                                        @endif
                                             <!-- Post Like & Post Comment -->
                                             <div class="d-flex align-items-center">
-                                                <a href="#" class="post-like"><img src="img/core-img/like.png" alt="">
+                                                <a href="#" class="post-like"><img
+                                                        src="{{"assets/"}}assets/img/core-img/like.png" alt="">
                                                     <span>392</span></a>
-                                                <a href="#" class="post-comment"><img src="img/core-img/chat.png"
-                                                                                      alt="">
+                                                <a href="#" class="post-comment"><img
+                                                        src="{{"assets/"}}assets/img/core-img/chat.png"
+                                                        alt="">
                                                     <span>10</span></a>
                                             </div>
                                         </div>
@@ -108,20 +128,35 @@
                             @if($c==3)
                                 <div class="single-blog-post featured-post-2">
                                     <div class="post-thumb">
-                                        <a href="#"><img src="img/bg-img/17.jpg" alt=""></a>
+                                        @if($val["type"]=="video")
+                                            <iframe width="150" height="150"
+                                                    src="https://www.youtube.com/embed/{{$val["utubeline"]}}">
+                                            </iframe>
+                                        @else
+                                            <img src="uploads/{{$val['image']}}" width="150" height="150"
+                                                 alt="No image found" class="card-img-top">
+                                        @endif
                                     </div>
                                     <div class="post-data">
-                                        <a href="#" class="post-catagory">Finance</a>
+
                                         <div class="post-meta">
-                                            <a href="#" class="post-title">
-                                                <h6>TItile</h6>
-                                            </a>
+                                            @if($val["type"]=="video")
+                                                <a href="view_Video_post/{{$val["id"]}}" class="post-title">
+                                                    <h6>{{$val["title"]}}</h6></a>
+
+                                            @else
+                                                <a href="view_post/{{$val["id"]}}" class="post-title">
+                                                    <h6>{{$val["title"]}}</h6></a>
+
+                                        @endif
                                             <!-- Post Like & Post Comment -->
                                             <div class="d-flex align-items-center">
-                                                <a href="#" class="post-like"><img src="img/core-img/like.png" alt="">
+                                                <a href="#" class="post-like"><img
+                                                        src="{{"assets/"}}assets/img/core-img/like.png" alt="">
                                                     <span>392</span></a>
-                                                <a href="#" class="post-comment"><img src="img/core-img/chat.png"
-                                                                                      alt="">
+                                                <a href="#" class="post-comment"><img
+                                                        src="{{"assets/"}}assets/img/core-img/chat.png"
+                                                        alt="">
                                                     <span>10</span></a>
                                             </div>
                                         </div>
@@ -139,20 +174,35 @@
                             @if($c==4)
                                 <div class="single-blog-post featured-post-2">
                                     <div class="post-thumb">
-                                        <a href="#"><img src="img/bg-img/17.jpg" alt=""></a>
+                                        @if($val["type"]=="video")
+                                            <iframe width="150" height="150"
+                                                    src="https://www.youtube.com/embed/{{$val["utubeline"]}}">
+                                            </iframe>
+                                        @else
+                                            <img src="uploads/{{$val['image']}}" width="150" height="150"
+                                                 alt="No image found" class="card-img-top">
+                                        @endif
                                     </div>
                                     <div class="post-data">
-                                        <a href="#" class="post-catagory">Finance</a>
+
                                         <div class="post-meta">
-                                            <a href="#" class="post-title">
-                                                <h6>TItile</h6>
-                                            </a>
+                                            @if($val["type"]=="video")
+                                                <a href="view_Video_post/{{$val["id"]}}" class="post-title">
+                                                    <h6>{{$val["title"]}}</h6></a>
+
+                                            @else
+                                                <a href="view_post/{{$val["id"]}}" class="post-title">
+                                                    <h6>{{$val["title"]}}</h6></a>
+
+                                        @endif
                                             <!-- Post Like & Post Comment -->
                                             <div class="d-flex align-items-center">
-                                                <a href="#" class="post-like"><img src="img/core-img/like.png" alt="">
+                                                <a href="#" class="post-like"><img
+                                                        src="{{"assets/"}}assets/img/core-img/like.png" alt="">
                                                     <span>392</span></a>
-                                                <a href="#" class="post-comment"><img src="img/core-img/chat.png"
-                                                                                      alt="">
+                                                <a href="#" class="post-comment"><img
+                                                        src="{{"assets/"}}assets/img/core-img/chat.png"
+                                                        alt="">
                                                     <span>10</span></a>
                                             </div>
                                         </div>
@@ -166,20 +216,35 @@
                             @if($c==5)
                                 <div class="single-blog-post featured-post-2">
                                     <div class="post-thumb">
-                                        <a href="#"><img src="img/bg-img/17.jpg" alt=""></a>
+                                        @if($val["type"]=="video")
+                                            <iframe width="150" height="150"
+                                                    src="https://www.youtube.com/embed/{{$val["utubeline"]}}">
+                                            </iframe>
+                                        @else
+                                            <img src="uploads/{{$val['image']}}" width="150" height="150"
+                                                 alt="No image found" class="card-img-top">
+                                        @endif
                                     </div>
                                     <div class="post-data">
-                                        <a href="#" class="post-catagory">Finance</a>
+
                                         <div class="post-meta">
-                                            <a href="#" class="post-title">
-                                                <h6>TItile</h6>
-                                            </a>
+                                            @if($val["type"]=="video")
+                                                <a href="view_Video_post/{{$val["id"]}}" class="post-title">
+                                                    <h6>{{$val["title"]}}</h6></a>
+
+                                            @else
+                                                <a href="view_post/{{$val["id"]}}" class="post-title">
+                                                    <h6>{{$val["title"]}}</h6></a>
+
+                                        @endif
                                             <!-- Post Like & Post Comment -->
                                             <div class="d-flex align-items-center">
-                                                <a href="#" class="post-like"><img src="img/core-img/like.png" alt="">
+                                                <a href="#" class="post-like"><img
+                                                        src="{{"assets/"}}assets/img/core-img/like.png" alt="">
                                                     <span>392</span></a>
-                                                <a href="#" class="post-comment"><img src="img/core-img/chat.png"
-                                                                                      alt="">
+                                                <a href="#" class="post-comment"><img
+                                                        src="{{"assets/"}}assets/img/core-img/chat.png"
+                                                        alt="">
                                                     <span>10</span></a>
                                             </div>
                                         </div>
@@ -191,6 +256,7 @@
                     </div>
                 </div>
 
+
             </div>
 
 
@@ -198,117 +264,107 @@
                 <!-- Single Featured Post -->
 
                 <div class="row">
+                    <?php $c = 0 ?>
 
+                    @foreach($value1 as $val)
+                        <?php $c = $c + 1 ?>
 
-                    <div class="col-md-12 col-xs-3">
-                        <div class="single-blog-post featured-post-2">
-                            <div class="post-thumb">
-                                <a href="#"><img src="img/bg-img/18.jpg" alt=""></a>
-                            </div>
-                            <div class="post-data">
-                                <a href="#" class="post-catagory">Finance</a>
-                                <div class="post-meta">
-                                    <a href="#" class="post-title">
-                                        <h6>Title</h6></a>
-                                    <!-- Post Like & Post Comment -->
-                                    <div class="d-flex align-items-center">
-                                        <a href="#" class="post-like"><img src="img/core-img/like.png" alt="">
-                                            <span>392</span></a>
-                                        <a href="#" class="post-comment"><img src="img/core-img/chat.png" alt=""> <span>10</span></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="single-blog-post featured-post-2">
-                            <div class="post-thumb">
-                                <a href="#"><img src="img/bg-img/18.jpg" alt=""></a>
-                            </div>
-                            <div class="post-data">
-                                <a href="#" class="post-catagory">Finance</a>
-                                <div class="post-meta">
-                                    <a href="#" class="post-title">
-                                        <h6>Title</h6></a>
-                                    <!-- Post Like & Post Comment -->
-                                    <div class="d-flex align-items-center">
-                                        <a href="#" class="post-like"><img src="img/core-img/like.png" alt="">
-                                            <span>392</span></a>
-                                        <a href="#" class="post-comment"><img src="img/core-img/chat.png" alt=""> <span>10</span></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-xs-3">
-                        <div class="single-blog-post featured-post-2">
-                            <div class="post-thumb">
-                                <a href="#"><img src="img/bg-img/18.jpg" alt=""></a>
-                            </div>
-                            <div class="post-data">
-                                <a href="#" class="post-catagory">Finance</a>
-                                <div class="post-meta">
-                                    <a href="#" class="post-title">
-                                        <h6>Title</h6></a>
-                                    <!-- Post Like & Post Comment -->
-                                    <div class="d-flex align-items-center">
-                                        <a href="#" class="post-like"><img src="img/core-img/like.png" alt="">
-                                            <span>392</span></a>
-                                        <a href="#" class="post-comment"><img src="img/core-img/chat.png" alt=""> <span>10</span></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                        @if($c==1)
 
-                    <div class="col-md-6">
-                        <div class="single-blog-post featured-post-2">
-                            <div class="post-thumb">
-                                <a href="#"><img src="img/bg-img/18.jpg" alt=""></a>
-                            </div>
-                            <div class="post-data">
-                                <a href="#" class="post-catagory">Finance</a>
-                                <div class="post-meta">
-                                    <a href="#" class="post-title">
-                                        <h6>Title</h6></a>
-                                    <!-- Post Like & Post Comment -->
-                                    <div class="d-flex align-items-center">
-                                        <a href="#" class="post-like"><img src="img/core-img/like.png" alt="">
-                                            <span>392</span></a>
-                                        <a href="#" class="post-comment"><img src="img/core-img/chat.png" alt=""> <span>10</span></a>
+                            <div class="col-md-12 col-xs-3">
+                                <div class="single-blog-post featured-post-2">
+                                    <div class="post-thumb">
+                                        @if($val["type"]=="video")
+                                            <iframe width="350" height="350"
+                                                    src="https://www.youtube.com/embed/{{$val["utubeline"]}}">
+                                            </iframe>
+                                        @else
+                                            <img src="uploads/{{$val['image']}}" width="150" height="150"
+                                                 alt="No image found" class="card-img-top">
+                                        @endif
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-xs-3">
-                        <div class="single-blog-post featured-post-2">
-                            <div class="post-thumb">
-                                <a href="#"><img src="img/bg-img/18.jpg" alt=""></a>
-                            </div>
-                            <div class="post-data">
-                                <a href="#" class="post-catagory">Finance</a>
-                                <div class="post-meta">
-                                    <a href="#" class="post-title">
-                                        <h6>Title</h6></a>
-                                    <!-- Post Like & Post Comment -->
-                                    <div class="d-flex align-items-center">
-                                        <a href="#" class="post-like"><img src="img/core-img/like.png" alt="">
-                                            <span>392</span></a>
-                                        <a href="#" class="post-comment"><img src="img/core-img/chat.png" alt=""> <span>10</span></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                                    <div class="post-data">
+                                        <div class="post-meta">
 
+                                            @if($val["type"]=="video")
+                                                <a href="view_Video_post/{{$val["id"]}}" class="post-title">
+                                                    <h6>{{$val["title"]}}</h6></a>
+
+                                            @else
+                                                <a href="view_post/{{$val["id"]}}" class="post-title">
+                                                    <h6>{{$val["title"]}}</h6></a>
+
+                                        @endif
+                                        <!-- Post Like & Post Comment -->
+                                            <div class="d-flex align-items-center">
+                                                <a href="#" class="post-like"><img
+                                                        src="{{"assets/"}}assets/img/core-img/like.png" alt="">
+                                                    <span>392</span></a>
+                                                <a href="#" class="post-comment"><img
+                                                        src="{{"assets/"}}assets/img/core-img/chat.png"
+                                                        alt=""> <span>10</span></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endif
+                    @endforeach
+                    <?php $c = 0 ?>
+                <!-- Single Featured Post -->
+                    @foreach($value1 as $val)
+                        <?php $c = $c + 1 ?>
+
+                        @if($c==1)
+
+                        @else
+                            <div class="col-md-6">
+                                <div class="single-blog-post featured-post-2">
+                                    <div class="post-thumb">
+                                        @if($val["type"]=="video")
+                                            <iframe width="150" height="150"
+                                                    src="https://www.youtube.com/embed/{{$val["utubeline"]}}">
+                                            </iframe>
+                                        @else
+                                            <img src="uploads/{{$val['image']}}" width="150" height="150"
+                                                 alt="No image found" class="card-img-top">
+                                        @endif
+                                    </div>
+                                    <div class="post-data">
+                                        <div class="post-meta">
+                                            @if($val["type"]=="video")
+                                                <a href="view_Video_post/{{$val["id"]}}" class="post-title">
+                                                    <h6>{{$val["title"]}}</h6></a>
+
+                                            @else
+                                                <a href="view_post/{{$val["id"]}}" class="post-title">
+                                                    <h6>{{$val["title"]}}</h6></a>
+
+                                        @endif
+                                            <!-- Post Like & Post Comment -->
+                                            <div class="d-flex align-items-center">
+                                                <a href="#" class="post-like"><img
+                                                        src="{{"assets/"}}assets/img/core-img/like.png" alt="">
+                                                    <span>392</span></a>
+                                                <a href="#" class="post-comment"><img
+                                                        src="{{"assets/"}}assets/img/core-img/chat.png"
+                                                        alt=""> <span>10</span></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endif
+                    @endforeach
                 </div>
                 <!-- Single Featured Post -->
 
-            </div>
 
+            </div>
+            {{ $value->links() }}
 
         </div>
+        <br>
     </div>
 </div>
 
